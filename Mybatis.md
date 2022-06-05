@@ -4,7 +4,7 @@ mybatis官网：[mybatis – MyBatis 3 | Introduction](https://mybatis.org/mybat
 
 
 
-#### mybatis简介
+### 简介
 
 ---
 
@@ -24,9 +24,71 @@ mybatis官网：[mybatis – MyBatis 3 | Introduction](https://mybatis.org/mybat
 
 - maven仓库：[artifact/org.mybatis/mybatis]([Maven Repository: org.mybatis » mybatis (mvnrepository.com)](https://mvnrepository.com/artifact/org.mybatis/mybatis))
 
-#### 持久层
+#### 持久化
 
-数据持久化
+**数据持久化**
 
 - 持久化是指程序的数据在持久状态和瞬时状态相互转化的过程
+
+**数据持久化方式**：
+
++ 数据库（JDBC）
++ IO文件持久化
+
+#### 持久层
+
+完成持久化工作的代码块
+
+#### 为什么需要Mybatis？
+
++ 方便
++ 传统的JDBC代码太复杂了，需要简化，自动化
++ 学习成本低，更容易上手
+
+#### Mybatis的优点
+
++ 简单易学
++ 灵活
++ sql语句和代码分离，提高了可维护性
++ 提供映射标签，支持对象与数据库的orm字段关系映射
++ 提供xml标签，支持写动态sql
++ 最重要的一点：使用的人多
+
+### 第一个mybatis程序
+
+**1、建库建表**
+
+```sql
+create database `mybatis`;
+use `mybatis`;
+create table `t_user`(
+    `id` int(20) not null primary key,
+    `name` varchar(30) default null,
+    `password` varchar(30) default null
+)engine = innodb default character set = utf8;
+insert into `t_user`(`id`, `name`, `password`)
+values (1, '张三', '123456'),
+       (2, '李四', '123456'),
+       (3, '王五', '123456');
+select * from `t_user`;
+```
+
+**2、新建maven项目，导入mysql和mybatis依赖。**
+
+```xml
+<!--        mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+        </dependency>
+<!--        mybatis-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.7</version>
+        </dependency>
+```
+
+
 
