@@ -89,5 +89,3 @@ select * from `t_user`;
             <version>3.5.7</version>
         </dependency>
 ```
-
-你好！
